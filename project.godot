@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [file_customization]
 
 folder_colors={
+"res://Enemigos/": "orange",
 "res://Jugador/": "teal",
 "res://Jugador/Scripts/": "blue",
 "res://Jugador/Scripts/Globales/": "orange",

@@ -10,6 +10,9 @@ size = Vector2(1239.5, 67)
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_e2i53")]
 position = Vector2(116, 36)
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(2, 2)
+
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]

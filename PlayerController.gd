@@ -3,14 +3,14 @@ extends CharacterBody2D
 @export_category("Movement variable")
 @export var move_speed = 120.0
 @export var deseleration = 0.1
-@export var gravity = 600.0
+@export var gravity = 570.0
 var movement = Vector2()
 
 @export_category("Jump")
 @export var jump_speed = 210.0
 @export var acceleration = 280.0
-@export var jump_amount = 2
-@export var des_jumps = 2
+@export var jump_amount = 1
+@export var des_jumps = 1
 
 @export_category("Dash")
 @export var dash_speed = 400.0
