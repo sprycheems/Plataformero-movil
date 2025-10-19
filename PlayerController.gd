@@ -19,8 +19,21 @@ var movement = Vector2()
 @export var dash_number = 1
 @export var can_dash: bool = true
 
+var PowerShoot= preload("res://Jugador/Interactives/power_shoot.tscn")
+
 var dash_key_pressed = 0
 var is_dashing = false
+
+func powershoot():
+	var shoot = PowerShoot.instantiate()
+	if Input.is_action_just_pressed("Power"):
+		$AnimatedSprite2D.play("shoot")
+		await$AnimatedSprite2D.animation_finished
+		get_parent().add_child(shoot)
+		shoot.position = $Marker2D.global_position
+		if not facing_right:
+			shoot.scale.x *= -1
+			shoot.velocity *=-1
 
 func horizontal_movement():
 	if not is_dashing:
@@ -84,6 +97,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = dash_gravity
 
+	powershoot()
 	jump_logic()
 	horizontal_movement()
 	flip()

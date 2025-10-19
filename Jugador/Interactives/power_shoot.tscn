@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://w0lvu4adhugg"]
+
+[ext_resource type="Script" uid="uid://d18rhjmitoj6e" path="res://power_shoot.gd" id="1_s5uqj"]
+[ext_resource type="Texture2D" uid="uid://cfg4yggiso4l" path="res://Jugador/Sprite/New Piskel (1).png" id="2_pupyy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x0n2a"]
+radius = 5.0
+height = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d87t1"]
+atlas = ExtResource("2_pupyy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee40c"]
+atlas = ExtResource("2_pupyy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olyvq"]
+atlas = ExtResource("2_pupyy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ath5a"]
+atlas = ExtResource("2_pupyy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lenwd"]
+atlas = ExtResource("2_pupyy")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gqqb"]
+atlas = ExtResource("2_pupyy")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg4nf"]
+atlas = ExtResource("2_pupyy")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0pkxr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d87t1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee40c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olyvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ath5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lenwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gqqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg4nf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="PowerShoot" type="Area2D"]
+script = ExtResource("1_s5uqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_x0n2a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0pkxr")
+frame_progress = 0.969944
