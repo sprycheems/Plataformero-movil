@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+
 @export_category("Movement variable")
 @export var move_speed = 120.0
 @export var deseleration = 0.1
@@ -23,12 +27,26 @@ var PowerShoot= preload("res://Jugador/Interactives/power_shoot.tscn")
 
 var dash_key_pressed = 0
 var is_dashing = false
+var ispower = false
+
+func anim():
+	if is_dashing:
+		sprite.play("dash")
+	elif ispower:
+		sprite.play("shoot")
+	else:
+		if velocity.x != 0:
+			sprite.play("walk")
+		else:
+			sprite.play("idle")
 
 func powershoot():
 	var shoot = PowerShoot.instantiate()
 	if Input.is_action_just_pressed("Power"):
+		ispower= true
 		$AnimatedSprite2D.play("shoot")
 		await$AnimatedSprite2D.animation_finished
+		ispower= false
 		get_parent().add_child(shoot)
 		shoot.position = $Marker2D.global_position
 		if not facing_right:
@@ -91,15 +109,17 @@ func flip():
 		scale.x = scale.y * -1
 
 func _physics_process(delta: float) -> void:
-	# Aplicar gravedad si no estás en dash
+
 	if not is_dashing:
 		velocity.y += gravity * delta
 	else:
 		velocity.y = dash_gravity
+		
 
 	powershoot()
 	jump_logic()
 	horizontal_movement()
 	flip()
+	anim()
 
 	move_and_slide()
