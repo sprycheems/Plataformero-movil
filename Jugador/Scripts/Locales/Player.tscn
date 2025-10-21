@@ -1,12 +1,16 @@
-[gd_scene load_steps=44 format=3 uid="uid://fehnqbnfcw01"]
+[gd_scene load_steps=45 format=3 uid="uid://fehnqbnfcw01"]
 
-[ext_resource type="Script" uid="uid://dbfbqjnxyuke7" path="res://PlayerController.gd" id="1_pdhgi"]
+[ext_resource type="Script" uid="uid://dbfbqjnxyuke7" path="res://Jugador/Scripts/Locales/PlayerController.gd" id="1_pdhgi"]
 [ext_resource type="Texture2D" uid="uid://npw67ch0u8h4" path="res://Jugador/Sprite/New Piskel (4).png" id="2_831ih"]
 [ext_resource type="Texture2D" uid="uid://cr1tp3x1jthaj" path="res://Jugador/Sprite/Idle.png" id="2_oj47p"]
 [ext_resource type="Texture2D" uid="uid://b88r8wh4c5vlq" path="res://Jugador/Sprite/Player attack.png" id="2_s842b"]
 [ext_resource type="Texture2D" uid="uid://1s5yjrmk4vd4" path="res://Jugador/Sprite/Player green Power.png" id="3_pmydk"]
 [ext_resource type="Texture2D" uid="uid://2lsmke1w0j7k" path="res://Jugador/Scripts/New Piskel (3).png" id="4_850i5"]
 [ext_resource type="Script" uid="uid://cxwc8s8qxccww" path="res://Jugador/Scripts/Locales/Animations.gd" id="4_pmydk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s842b"]
+radius = 8.0
+height = 34.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wj48"]
 atlas = ExtResource("2_s842b")
@@ -283,10 +287,15 @@ script = ExtResource("1_pdhgi")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_s842b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5w0yu")
-animation = &"walk"
+animation = &"attack"
+frame = 6
+frame_progress = 1.0
 
 [node name="Animations" type="Node" parent="AnimatedSprite2D"]
 script = ExtResource("4_pmydk")

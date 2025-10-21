@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://w0lvu4adhugg"]
 
-[ext_resource type="Script" uid="uid://d18rhjmitoj6e" path="res://power_shoot.gd" id="1_s5uqj"]
+[ext_resource type="Script" uid="uid://d18rhjmitoj6e" path="res://Jugador/Scripts/Locales/power_shoot.gd" id="1_s5uqj"]
 [ext_resource type="Texture2D" uid="uid://cfg4yggiso4l" path="res://Jugador/Sprite/New Piskel (1).png" id="2_pupyy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x0n2a"]
