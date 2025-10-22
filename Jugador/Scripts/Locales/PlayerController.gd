@@ -40,18 +40,29 @@ func anim():
 		else:
 			sprite.play("idle")
 
+		if velocity.y > 10:
+			sprite.play("fall")
+
+
 func powershoot():
 	var shoot = PowerShoot.instantiate()
 	if Input.is_action_just_pressed("Power"):
+
 		ispower= true
+		can_dash=false
+
 		$AnimatedSprite2D.play("shoot")
+
 		await$AnimatedSprite2D.animation_finished
 		ispower= false
+
 		get_parent().add_child(shoot)
 		shoot.position = $Marker2D.global_position
 		if not facing_right:
 			shoot.scale.x *= -1
 			shoot.velocity *=-1
+		await get_tree().create_timer(0.5).timeout
+		can_dash=true
 
 func horizontal_movement():
 	if not is_dashing:
