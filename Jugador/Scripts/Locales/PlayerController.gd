@@ -89,9 +89,9 @@ func horizontal_movement():
 
 func areas_control():
 	if is_attacking:
-		$Area2D/CollisionShape2D.disabled = false
+		$"Simple attack/CollisionShape2D".disabled = false
 	else:
-		$Area2D/CollisionShape2D.disabled=true
+		$"Simple attack/CollisionShape2D".disabled=true
 
 
 func jump_logic():

@@ -64,7 +64,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="PowerShoot" type="Area2D"]
+[node name="PowerShoot" type="Area2D" groups=["Damage_to_enemies"]]
 script = ExtResource("1_s5uqj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -29,6 +29,11 @@ folder_colors={
 "res://Jugador/Sprite/": "yellow"
 }
 
+[global_group]
+
+Player.G=""
+Damage_to_enemies="Areas que inflingen dano a los enemigos"
+
 [input]
 
 Up={

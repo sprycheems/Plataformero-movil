@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://conlrof2d0uws"]
+[gd_scene load_steps=4 format=3 uid="uid://conlrof2d0uws"]
 
-[ext_resource type="PackedScene" uid="uid://fehnqbnfcw01" path="res://Jugador/Scripts/Locales/Player.tscn" id="1_e2i53"]
+[ext_resource type="PackedScene" uid="uid://fehnqbnfcw01" path="res://Jugador/Player.tscn" id="1_e2i53"]
+[ext_resource type="PackedScene" uid="uid://ctrgat02dn3sy" path="res://Enemigos/Debug/enemigo de prueba.tscn" id="2_8nb6i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nb6i"]
 size = Vector2(1239.5, 67)
@@ -18,3 +19,6 @@ zoom = Vector2(2.5, 2.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
 position = Vector2(545.25, 411)
 shape = SubResource("RectangleShape2D_8nb6i")
+
+[node name="CharacterBody2D3" parent="." instance=ExtResource("2_8nb6i")]
+position = Vector2(207, 358)

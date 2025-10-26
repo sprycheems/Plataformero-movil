@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://fehnqbnfcw01"]
+[gd_scene load_steps=44 format=3 uid="uid://fehnqbnfcw01"]
 
 [ext_resource type="Script" uid="uid://dbfbqjnxyuke7" path="res://Jugador/Scripts/Locales/PlayerController.gd" id="1_pdhgi"]
+[ext_resource type="Script" uid="uid://cl0ewwcbyviic" path="res://Jugador/simple_attack.gd" id="2_8ac3d"]
 [ext_resource type="Texture2D" uid="uid://npw67ch0u8h4" path="res://Jugador/Sprite/New Piskel (4).png" id="2_831ih"]
 [ext_resource type="Texture2D" uid="uid://b88r8wh4c5vlq" path="res://Jugador/Sprite/Player attack.png" id="2_s842b"]
 [ext_resource type="Texture2D" uid="uid://1s5yjrmk4vd4" path="res://Jugador/Sprite/Player green Power.png" id="3_pmydk"]
@@ -271,12 +272,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdhgi"]
 size = Vector2(11, 3)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Player", "Player.G"]]
 script = ExtResource("1_pdhgi")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Simple attack" type="Area2D" parent="." groups=["Damage_to_enemies"]]
+script = ExtResource("2_8ac3d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Simple attack"]
 position = Vector2(0, -1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_s842b")
