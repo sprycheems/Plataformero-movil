@@ -33,6 +33,7 @@ folder_colors={
 
 Player.G=""
 Damage_to_enemies="Areas que inflingen dano a los enemigos"
+Damage_to_player="Objetos que le van a hacer daño al juador"
 
 [input]
 

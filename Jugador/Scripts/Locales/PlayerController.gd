@@ -21,6 +21,8 @@ var movement = Vector2()
 @export var dash_number = 1
 @export var can_dash: bool = true
 
+var life = 6
+
 var PowerShoot = preload("res://Jugador/Interactives/power_shoot.tscn")
 var dash_key_pressed = 0
 var is_dashing = false
@@ -133,6 +135,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = dash_gravity
 
+	$Hitbox.area_entered
+
+
 
 	areas_control()
 	powershoot()
@@ -142,3 +147,17 @@ func _physics_process(delta: float) -> void:
 	flip()
 	anim()
 	move_and_slide()
+	die()
+
+func die():
+	if life <= 0 and not action_locked:
+		action_locked = true
+
+		await sprite.play("die")
+		get_tree().reload_current_scene()
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Damage_to_player"):
+		life-= area.damage_to_player
+	else:
+		pass

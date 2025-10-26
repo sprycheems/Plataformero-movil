@@ -2,7 +2,7 @@ extends Area2D
 class_name enemies
 
 var life = 3
-
+var damage_to_player = 1
 
 
 
