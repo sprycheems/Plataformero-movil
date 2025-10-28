@@ -147,17 +147,3 @@ func _physics_process(delta: float) -> void:
 	flip()
 	anim()
 	move_and_slide()
-	die()
-
-func die():
-	if life <= 0 and not action_locked:
-		action_locked = true
-
-		await sprite.play("die")
-		get_tree().reload_current_scene()
-
-func _on_hitbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Damage_to_player"):
-		life-= area.damage_to_player
-	else:
-		pass
